@@ -1,13 +1,12 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const Employee = require('./lib/Employee');
-const Manager = require ('./lib/Manager');
-const Engineer = require ('./lib/Engineer');
-const Intern = require ('./lib/Intern');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
 
-const employeeArray =[];
-
+const employeeArray = [];
 
 const mgrQuestions = [
     {
@@ -31,12 +30,6 @@ const mgrQuestions = [
         name: 'office'
     },
 
-    {
-        type: 'list',
-        message: 'Do you want to add any of the following employee?',
-        name: 'addPosition',
-        choices: ['Engineer', 'Intern', 'No, finish my webpage'],
-    },
 ]
 
 const engrQuestions = [
@@ -67,12 +60,6 @@ const engrQuestions = [
         message: 'What is your Engineer Github username?',
         name: 'engrGithub'
     },
-    {
-        type: 'list',
-        message: 'Do you want to add another employee?',
-        name: 'addPosition',
-        choices: ['Engineer', 'Intern', 'No, finish my webpage'],
-    },
 
 ]
 
@@ -98,6 +85,10 @@ const internQuestions = [
         message: 'What is your Intern school?',
         name: 'internGithub'
     },
+
+]
+
+const addMoreEmpQuestions = [
     {
         type: 'list',
         message: 'Do you want to add another employee?',
@@ -109,20 +100,81 @@ const internQuestions = [
 
 
 // Prompt function for question and answer
-inquirer
-    .prompt(mgrQuestions)
 
-    //generating data based on the answers/response
-    .then((mgrData) => {
+function execMgrQuestions() {
+    inquirer
+        .prompt(mgrQuestions)
 
-        console.log(mgrData);
+        //generating data based on the answers/response
+        .then((mgrData) => {
 
-        const mgrArr = new Manager (mgrQuestions.name, mgrQuestions.id, mgrQuestions.email, mgrQuestions.office);
+            console.log(mgrData);
 
-        console.log(mgrData);
-        employeeArray.push(mgrArr);
-        console.log(employeeArray);
+            const mgrArr = new Engineer(mgrData.name, mgrData.id, mgrData.email, mgrData.office);
 
-    })
+            employeeArray.push(mgrArr);
+
+            execAddQuestions()
+        })
+}
+
+function execEngrQuestions() {
+    inquirer
+        .prompt(engrQuestions)
+
+        //generating data based on the answers/response
+        .then((engrData) => {
+
+            console.log(engrData);
+
+            const engrArr = new Manager(engrData.name, engrData.id, engrData.email, engrData.office);
+
+            employeeArray.push(engrArr);
+
+            execAddQuestions()
+        })
+}
+
+function execInternQuestions() {
+    inquirer
+        .prompt(internQuestions)
+
+        //generating data based on the answers/response
+        .then((internData) => {
+
+            console.log(internData);
+
+            const internArr = new Manager(internData.name, internData.id, internData.email, internData.office);
+
+            employeeArray.push(internArr);
+
+            execAddQuestions()
+        })
+}
+
+function execAddQuestions() {
+    inquirer
+        .prompt(addMoreEmpQuestions)
+
+        //generating data based on the answers/response
+        .then((execAddData) => {
+
+
+            if (execAddData.choices = 'Engineer') { 
+                execEngrQuestions();
+            }
+            else if (execAddData.choices = 'No, finish my webpage') { execInternQuestions() }
+
+            else ( renderHtml());
+
+
+        }
+)
+}
+        
+
+
+
+execMgrQuestions()
 
 
