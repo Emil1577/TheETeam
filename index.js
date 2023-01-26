@@ -100,7 +100,7 @@ const yesNoaddEmpQuestions = [
 ]
 
 
-const execAddQuestions = [
+const addEmpQuestions = [
 
     {
         type: 'list',
@@ -196,13 +196,13 @@ console.log(yesNoData.addEmp)
 
 function execAddEmpQuestions() {
     inquirer
-        .prompt(execAddQuestions)
+        .prompt(addEmpQuestions)
 
         //generating data based on the answers/response
-        .then((execAddData) => {
+        .then((addEmpData) => {
 
 
-            if (execAddData.addPosition === "Intern") {
+            if (addEmpData.addPosition === "Intern") {
 
                 execInternQuestions(internQuestions);
             }
