@@ -31,6 +31,74 @@ const mgrQuestions = [
     },
 ]
 
+const engrQuestions = [
+
+    {
+        type: 'input',
+        message: 'What is your Engineer name?',
+        name: 'engrName'
+    },
+    {
+        type: 'input',
+        message: 'What is your Engineer ID number?',
+        name: 'engrId'
+    },
+    {
+        type: 'input',
+        message: 'What is your Engineer email address?',
+        name: 'engrEmail'
+    },
+    {
+        type: 'input',
+        message: 'What is your Engineer office number?',
+        name: 'engrOffice'
+    },
+
+    {
+        type: 'input',
+        message: 'What is your Engineer Github username?',
+        name: 'engrGithub'
+    },
+    {
+        type: 'list',
+        message: 'Do you want to add another employee?',
+        name: 'addPosition',
+        choices: ['Engineer', 'Intern', 'No, finish my webpage'],
+    },
+
+]
+
+const internQuestions = [
+
+    {
+        type: 'input',
+        message: 'What is your Intern name?',
+        name: 'engrName'
+    },
+    {
+        type: 'input',
+        message: 'What is your Intern  ID number?',
+        name: 'engrId'
+    },
+    {
+        type: 'input',
+        message: 'What is your Intern  email address?',
+        name: 'engrEmail'
+    }
+    {
+        type: 'input',
+        message: 'What is your Intern school?',
+        name: 'engrGithub'
+    },
+    {
+        type: 'list',
+        message: 'Do you want to add another employee?',
+        name: 'addPosition',
+        choices: ['Engineer', 'Intern', 'No, finish my webpage'],
+    },
+
+]
+
 
 // Prompt function for question and answer
 inquirer
@@ -40,5 +108,10 @@ inquirer
     .then((mgrData) => {
 
         console.log(mgrData);
+
+        var newMgrData = JSON.stringify(mgrData);
+
+        console.log(newMgrData);
+
 
     })
