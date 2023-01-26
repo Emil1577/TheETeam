@@ -37,28 +37,28 @@ const engrQuestions = [
     {
         type: 'input',
         message: 'What is your Engineer name?',
-        name: 'engrName'
+        name:'name'
     },
     {
         type: 'input',
         message: 'What is your Engineer ID number?',
-        name: 'engrId'
+        name: 'id'
     },
     {
         type: 'input',
         message: 'What is your Engineer email address?',
-        name: 'engrEmail'
+        name: 'email'
     },
     {
         type: 'input',
         message: 'What is your Engineer office number?',
-        name: 'engrOffice'
+        name: 'office'
     },
 
     {
         type: 'input',
         message: 'What is your Engineer Github username?',
-        name: 'engrGithub'
+        name: 'github'
     },
 
 ]
@@ -68,22 +68,22 @@ const internQuestions = [
     {
         type: 'input',
         message: 'What is your Intern name?',
-        name: 'internName'
+        name: 'name'
     },
     {
         type: 'input',
         message: 'What is your Intern  ID number?',
-        name: 'internId'
+        name: 'id'
     },
     {
         type: 'input',
         message: 'What is your Intern  email address?',
-        name: 'internEmail'
+        name: 'email'
     },
     {
         type: 'input',
         message: 'What is your Intern school?',
-        name: 'internGithub'
+        name: 'school'
     },
 
 ]
@@ -93,7 +93,7 @@ const yesNoaddEmpQuestions = [
     {
         type: 'list',
         message: 'Do you want to add another employee?',
-        name: 'yes or no',
+        name: 'addEmp',
         choices: ['yes', 'no'],
     },
 
@@ -120,11 +120,14 @@ function execMgrQuestions() {
         //generating data based on the answers/response
         .then((mgrData) => {
 
-            console.log(mgrData);
+            console.log(mgrData.name);
 
-            const mgrArr = new Engineer(mgrData.name, mgrData.id, mgrData.email, mgrData.office);
+            const mgrArr = new Manager(mgrData.name, mgrData.id, mgrData.email, mgrData.office);
 
             employeeArray.push(mgrArr);
+
+            console.log(mgrArr);
+            console.log(employeeArray);
 
             execAddEmployee()
         })
@@ -139,9 +142,15 @@ function execEngrQuestions() {
 
             console.log(engrData);
 
-            const engrArr = new Manager(engrData.name, engrData.id, engrData.email, engrData.office);
+            const engrArr = new Engineer (engrData.name, engrData.id, engrData.email, engrData.office);
 
             employeeArray.push(engrArr);
+
+console.log(engrData.Name)
+    
+
+
+            console.log(JSON.stringify(employeeArray));
 
             execAddEmployee()
         })
@@ -156,7 +165,7 @@ function execInternQuestions() {
 
             console.log(internData);
 
-            const internArr = new Manager(internData.name, internData.id, internData.email, internData.office);
+            const internArr = new Intern (internData.name, internData.id, internData.email, internData.school);
 
             employeeArray.push(internArr);
 
@@ -171,12 +180,12 @@ function execAddEmployee() {
         //generating data based on the answers/response
         .then((yesNoData) => {
 
-
-            if (yesNoData.choices === 'yes') {
+console.log(yesNoData.addEmp)
+            if (yesNoData.addEmp=== 'yes') {
                 execAddEmpQuestions()
             }
 
-            else if (yesNoData.choices === 'no') {
+            else {
                 renderHtml();
 
             }
@@ -193,16 +202,23 @@ function execAddEmpQuestions() {
         .then((execAddData) => {
 
 
-            if (execAddData.choices === 'Intern') {
+            if (execAddData.addPosition === "Intern") {
 
                 execInternQuestions(internQuestions);
             }
-            else if (execAddData.choices === 'Engineer') { execEngrQuestions() }
+            else { execEngrQuestions() }
 
         })
 }
+function renderHtml(){
+console.log(employeeArray );
+
+fs.writeFile('userReadMe.JSON', JSON.stringify(employeeArray), (err) =>
+err ? console.error(err) : console.log('Success!')
+);
 
 
+}
 
 execMgrQuestions()
 
