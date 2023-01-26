@@ -1,9 +1,9 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const Employee = require('./__tests__/Employee.test');
-const Manager = require ('./__tests__/Manager.test');
-const Engineer = require ('./__tests__/Engineer.test');
-const Intern = require ('./__tests__/Intern.test');
+const Employee = require('./lib/Employee');
+const Manager = require ('./lib/Manager');
+const Engineer = require ('./lib/Engineer');
+const Intern = require ('./lib/Intern');
 
 
 const employeeArray =[];
@@ -117,12 +117,11 @@ inquirer
 
         console.log(mgrData);
 
-        let mgrArr = new Manager(mgrQuestions.name, mgrQuestions.id, mgrQuestions.email, mgrQuestions.office);
+        const mgrArr = new Manager (mgrQuestions.name, mgrQuestions.id, mgrQuestions.email, mgrQuestions.office);
 
         console.log(mgrData);
-        employeeArray.push(mgrArr)  ;
+        employeeArray.push(mgrArr);
         console.log(employeeArray);
-
 
     })
 
