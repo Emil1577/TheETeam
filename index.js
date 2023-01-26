@@ -88,16 +88,28 @@ const internQuestions = [
 
 ]
 
-const addMoreEmpQuestions = [
+const yesNoaddEmpQuestions = [
+
     {
         type: 'list',
         message: 'Do you want to add another employee?',
-        name: 'addPosition',
-        choices: ['Engineer', 'Intern', 'No, finish my webpage'],
+        name: 'yes or no',
+        choices: ['yes', 'no'],
     },
 
 ]
 
+
+const execAddQuestions = [
+
+    {
+        type: 'list',
+        message: 'Do you want to add another employee?',
+        name: 'addPosition',
+        choices: ['Engineer', 'Intern'],
+    },
+
+]
 
 // Prompt function for question and answer
 
@@ -114,7 +126,7 @@ function execMgrQuestions() {
 
             employeeArray.push(mgrArr);
 
-            execAddQuestions()
+            execAddEmployee()
         })
 }
 
@@ -131,7 +143,7 @@ function execEngrQuestions() {
 
             employeeArray.push(engrArr);
 
-            execAddQuestions()
+            execAddEmployee()
         })
 }
 
@@ -148,30 +160,47 @@ function execInternQuestions() {
 
             employeeArray.push(internArr);
 
-            execAddQuestions()
+            execAddEmployee()
         })
 }
 
-function execAddQuestions() {
+function execAddEmployee() {
     inquirer
-        .prompt(addMoreEmpQuestions)
+        .prompt(yesNoaddEmpQuestions)
+
+        //generating data based on the answers/response
+        .then((yesNoData) => {
+
+
+            if (yesNoData.choices === 'yes') {
+                execAddEmpQuestions()
+            }
+
+            else if (yesNoData.choices === 'no') {
+                renderHtml();
+
+            }
+        }
+        )
+}
+
+
+function execAddEmpQuestions() {
+    inquirer
+        .prompt(execAddQuestions)
 
         //generating data based on the answers/response
         .then((execAddData) => {
 
 
-            if (execAddData.choices = 'Engineer') { 
-                execEngrQuestions();
+            if (execAddData.choices === 'Intern') {
+
+                execInternQuestions(internQuestions);
             }
-            else if (execAddData.choices = 'No, finish my webpage') { execInternQuestions() }
+            else if (execAddData.choices === 'Engineer') { execEngrQuestions() }
 
-            else ( renderHtml());
-
-
-        }
-)
+        })
 }
-        
 
 
 
