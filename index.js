@@ -1,6 +1,10 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
 
+
+const employeeArray =[];
+
+
 const mgrQuestions = [
     {
         type: 'input',
@@ -73,22 +77,22 @@ const internQuestions = [
     {
         type: 'input',
         message: 'What is your Intern name?',
-        name: 'engrName'
+        name: 'internName'
     },
     {
         type: 'input',
         message: 'What is your Intern  ID number?',
-        name: 'engrId'
+        name: 'internId'
     },
     {
         type: 'input',
         message: 'What is your Intern  email address?',
-        name: 'engrEmail'
-    }
+        name: 'internEmail'
+    },
     {
         type: 'input',
         message: 'What is your Intern school?',
-        name: 'engrGithub'
+        name: 'internGithub'
     },
     {
         type: 'list',
@@ -109,9 +113,11 @@ inquirer
 
         console.log(mgrData);
 
-        var newMgrData = JSON.stringify(mgrData);
+        const [{name, id, email, office, }] = newMgrData
 
         console.log(newMgrData);
 
 
     })
+
+
