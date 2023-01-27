@@ -245,7 +245,7 @@ function renderHtml() {
                     <div class="row ">
                         <div class="box1 col-12 col-md-6 col-lg-4">
                         <p id="title">Manager
-                        <p id ="name" ${employeeArray[0].name}</p>
+                        <p id ="name" >${employeeArray[0].name}</p>
                         <p>ID#: ${employeeArray[0].id}</p>
                         <a href="mailto:${employeeArray[0].email}">${employeeArray[0].email}</a>
                         <p></p> <p>Office Number: ${employeeArray[0].office}</p>
@@ -261,10 +261,10 @@ function renderHtml() {
                 `
                         <div class="box2 col-12 col-md-6 col-lg-4">
                         <p id="title">Intern
-                        <p id ="name"  > ${internArray[0].name}</p>
-                        <p> ID#: ${internArray[0].id}</p>
-                        <a href="mailto:${internArray[0].email}"> ${internArray[0].email}</a>
-                        <p></p> <p> School: ${internArray[0].school}</p>
+                        <p id ="name"  > ${internArray[i].name}</p>
+                        <p> ID#: ${internArray[i].id}</p>
+                        <a href="mailto:${internArray[i].email}"> ${internArray[i].email}</a>
+                        <p></p> <p> School: ${internArray[i].school}</p>
                     </div>`
 
 
@@ -282,10 +282,10 @@ function renderHtml() {
                 `
                 <div class="box3 col-12 col-md-6 col-lg-4">
                   <p id="title">Engineer
-                  <p id ="name"  >${engrArray[0].name}</p>
-                  <p> ID#: ${engrArray[0].id}</p>
-                  <a href="mailto:${engrArray[0].email}"> ${engrArray[0].email} </a>
-                  <p></p>  <a href="https://github.com/${engrArray[0].github}"  > GitHub: ${engrArray[0].github}</a> 
+                  <p id ="name"  >${engrArray[i].name}</p>
+                  <p> ID#: ${engrArray[i].id}</p>
+                  <a href="mailto:${engrArray[i].email}"> ${engrArray[i].email} </a>
+                  <p></p>  <a href="https://github.com/${engrArray[i].github}"  > GitHub: ${engrArray[i].github}</a> 
             
                    </div>`
                 ;
