@@ -9,7 +9,7 @@ h1, h3, h4 {
 
 .box {
 
-    background-color: rgb(169, 209, 237);
+    background-color: rgb(237, 216, 169);
 
     position: relative;
 align-items: left;
@@ -24,6 +24,31 @@ body {
     flex-direction: column;
     display: flex;
 
+}
+
+.box1 {
+
+    background-color: rgb(157, 189, 212)
+    
+}
+
+.box2 {
+
+    background-color: rgb(163, 216, 151)
+}
+.box3 {
+
+    background-color: rgb(197, 176, 115)
+}
+
+#title {
+
+    font-size: 40px;
+}
+
+#name {
+
+    font-size: 25px;
 }
 
 .section-container {

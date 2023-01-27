@@ -243,13 +243,13 @@ function renderHtml() {
 
 
                     <div class="row ">
-                        <div  class="box col-10 col-md-6 col-lg-2">
-                        <p id="Manager">Manager
-                            <p> ${employeeArray[0].name}</p>
-                            <p> ${employeeArray[0].id}</p>
-                            <p> ${employeeArray[0].email}</p>
-                            <p> ${employeeArray[0].office}</p>
-                        </div>`
+                        <div class="box1 col-12 col-md-6 col-lg-4">
+                        <p id="title">Manager
+                        <p id ="name" ${employeeArray[0].name}</p>
+                        <p>ID#: ${employeeArray[0].id}</p>
+                        <a href="mailto:${employeeArray[0].email}">${employeeArray[0].email}</a>
+                        <p></p> <p>Office Number: ${employeeArray[0].office}</p>
+                    </div>`
 
     fs.writeFile('./dist/index.html', html, (err) =>
         err ? console.error(err) : console.log('Success!'))
@@ -258,18 +258,19 @@ function renderHtml() {
         for (let i = 0; i < internArray.length; i++) {
 
             var internHtml =
-`
-                        <div class="box col-10 col-md-6 col-lg-2">
-                        <p id="Intern">Intern
-                        <p> ${internArray[0].name}</p>
-                        <p> ${internArray[0].id}</p>
-                        <p> ${internArray[0].email}</p>
-                        <p> ${internArray[0].school}</p>
-                            </div>`
+                `
+                        <div class="box2 col-12 col-md-6 col-lg-4">
+                        <p id="title">Intern
+                        <p id ="name"  > ${internArray[0].name}</p>
+                        <p> ID#: ${internArray[0].id}</p>
+                        <a href="mailto:${internArray[0].email}"> ${internArray[0].email}</a>
+                        <p></p> <p> School: ${internArray[0].school}</p>
+                    </div>`
 
-       
-        fs.appendFile('./dist/index.html', internHtml, (err) =>
-            err ? console.error(err) : console.log('Success!')) }
+
+            fs.appendFile('./dist/index.html', internHtml, (err) =>
+                err ? console.error(err) : console.log('Success!'))
+        }
 
 
     }
@@ -279,25 +280,27 @@ function renderHtml() {
 
             var engrHtml =
                 `
-                <div class="box col-10 col-md-6 col-lg-2">
-                  <p id="Engineer">Engineer
-                  <p> ${engrArray[0].name}</p>
-                  <p> ${engrArray[0].id}</p>
-                  <p> ${engrArray[0].email}</p>
-                  <p> ${engrArray[0].github}</p>
+                <div class="box3 col-12 col-md-6 col-lg-4">
+                  <p id="title">Engineer
+                  <p id ="name"  >${engrArray[0].name}</p>
+                  <p> ID#: ${engrArray[0].id}</p>
+                  <a href="mailto:${engrArray[0].email}"> ${engrArray[0].email} </a>
+                  <p></p>  <a href="https://github.com/${engrArray[0].github}"  > GitHub: ${engrArray[0].github}</a> 
+            
                    </div>`
-                                                  ;
+                ;
 
-      
-        fs.appendFile('./dist/index.html', engrHtml, (err) =>
-            err ? console.error(err) : console.log('Success!'))  }
+
+            fs.appendFile('./dist/index.html', engrHtml, (err) =>
+                err ? console.error(err) : console.log('Success!'))
+        }
 
 
     }
 
 
 
-console.log(engrArray)
+    console.log(engrArray)
 }
 
 
