@@ -10,7 +10,7 @@ https://github.com/Emil1577/TheETeam
 
 ## Installation Instructions
 
-First you need to clone my repository. Go to https://github.com/Emil1577/GitReadMeGo.  Then run your terminal on the folder of the cloned repository.  You'll also need to install the npm by writing "npm install'.  This will generate "node_modules" folder.  You also need to run "npm init", this will then create "package.json". After which is you are ready to use the application.
+First you need to clone my repository. Go to https://github.com/Emil1577/TheETeam. Then run your terminal on the folder of the cloned repository.  You'll also need to install the npm by writing "npm install'.  This will generate "node_modules" folder.  You also need to run "npm init", this will then create "package.json". After which is you are ready to use the application.
 
 ## Table Of Contents
 
