@@ -17,8 +17,7 @@ First you need to clone my repository. Go to https://github.com/Emil1577/TheETea
 1. [Webpage Screenshot](#webpage-screenshots)
 2. [Code Snippets](#code-snippets)
 3. [How to use:](#how-to-use)
-4. [Test Instruction](#test-instruction)
-5. [My Contact Information](#my-contact-information)
+4. [My Contact Information](#my-contact-information)
 
 ## Webpage Screenshots:
 
